@@ -15,7 +15,7 @@ export function Summary(props: SummaryProps) {
                 <header>
                     <span>houpa! - {props.name}</span>
                 </header>
-                <img src={props.icone} alt="loja"></img>
+                <img src={props.icone} alt="icone"></img>
                 <strong>{props.name}</strong>
                 <p>{props.description}</p>
             </Content>
