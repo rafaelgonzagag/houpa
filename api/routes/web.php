@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get( '/unauthorized', function () {
+    return response()->json([
+        'message' => 'Unauthorized'
+    ], 401);
+}
+)->name('unauthorized');
