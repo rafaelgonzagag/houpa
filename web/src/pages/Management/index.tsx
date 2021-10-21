@@ -13,7 +13,10 @@ export function Management () {
         <Summary name="Gerenciar Vitrines" icone={lojaImg} description="Cadastre seus produtos"/>
         <Container>
             <Search>
-                <img src={pesquisarImg} alt="seach"></img>
+                <div>
+                    <img src={pesquisarImg} alt="seach"></img>
+                </div>
+                
                 <input placeholder="Pesquisar nome do produto" value=""/>
             </Search>
             <ProductList>
@@ -22,7 +25,7 @@ export function Management () {
                         <img src={fotoImg} alt="foto"></img>
                     </div>
                     <div id="detalhes" className="item-detalhes">
-                        <span>TOP CROPPED VISCOSE</span>
+                        <strong>TOP CROPPED VISCOSE</strong>
                         <span>Marca: Unique Chic</span>
                         <span>Ref.: 0296845610</span>
                     </div>
@@ -40,7 +43,7 @@ export function Management () {
                         <img src={fotoImg} alt="foto"></img>
                     </div>
                     <div id="detalhes" className="item-detalhes">
-                        <span>TOP CROPPED VISCOSE</span>
+                        <strong>TOP CROPPED VISCOSE</strong>
                         <span>Marca: Unique Chic</span>
                         <span>Ref.: 0296845610</span>
                     </div>

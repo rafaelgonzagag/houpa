@@ -5,8 +5,8 @@ export function Header() {
     return (
         <Container>
             <ContentMenu>
-                <a href="/">Vitrines</a>
-                <a href="/gerenciar-vitrines">Gerenciar vitrines</a>
+                <a className="link-menu link-ative" href="/">Vitrines</a>
+                <a className="link-menu link-desative" href="/gerenciar-vitrines">Gerenciar vitrines</a>
             </ContentMenu>
             <Content>
                 <img src={logoImg} alt="houpa" />
