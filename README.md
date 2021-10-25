@@ -98,11 +98,11 @@ $ php artisan serve
 
 ```
 
-A collection do Insomina na raiz do proejto Insomnia_houpaAPI.json
+A collection do Insomina da API
 <a href="Insomnia_houpaAPI.json">Link</a>
 
-Dump do banco de dados na raiz do projeto dump-houpa
-
+Dump do banco de dados
+<a href="dump-houpa.sql">Link</a>
 ### Frontend
 Em outra aba do terminal
 
