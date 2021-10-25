@@ -38,6 +38,8 @@ class ProductsRepository implements IProductsRepository
 
     function delete(Product $product)
     {
+        $product->productPhotos()->delete();
+        $product->productItems()->delete();
         $product->delete();
     }
 }

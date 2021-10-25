@@ -8,7 +8,7 @@ import { Summary } from "../../components/Summary";
 import { Container, ProductItem, ProductList, Search } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-import { useHistory } from 'react-router';
+//import { useHistory } from 'react-router';
 
 interface Product {
     id: number;
@@ -18,7 +18,7 @@ interface Product {
 
 export function Management () {
     const [products, setProducts] = useState<Product[]>([]);
-    const history = useHistory();
+    //const history = useHistory();
     useEffect(() => {
         api.get('products')
         .then((response) => {
@@ -28,7 +28,7 @@ export function Management () {
             if(err.response.data.message) {
                 localStorage.removeItem('@Houpa:token');
                 localStorage.removeItem('@Houpa:user');
-                history.push("login");
+                //history.push("login");
             }           
         });
     }, []);

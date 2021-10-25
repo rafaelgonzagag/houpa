@@ -24,11 +24,11 @@ class Product extends Model
 
     public function productItems()
     {
-        return $this->hasMany(ProductItem::class);
+        return $this->hasMany(ProductItem::class, 'productId');
     }
 
     public function productPhotos()
     {
-        return $this->hasMany(ProductPhoto::class);
+        return $this->hasMany(ProductPhoto::class, 'productId');
     }
 }
