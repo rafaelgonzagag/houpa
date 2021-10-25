@@ -6,6 +6,17 @@ uma loja e mostrá-los para os clientes.
 
 <br/>
 
+
+### <p id='modelo'>📃 Modelo Lógico do Banco de Dados</p>
+
+<p align="center">
+  <img src="entity-relationship.png" alt="doc" width="1000"/>
+</p>
+
+<br/>
+
+---
+
 ---
 
 ### <p id='tecnology'>🖥 Stacks utilizadas para o desafio</p>
@@ -46,16 +57,6 @@ uma loja e mostrá-los para os clientes.
     <li>📂 api (Back-end)</li>
     <li>📂 web - (Front-end)</li>
 </ul>
-<br/>
-
----
-
-### <p id='modelo'>📃 Modelo Lógico do Banco de Dados</p>
-
-<p align="center">
-  <img src="entity-relationship.png" alt="doc" width="1000"/>
-</p>
-
 <br/>
 
 ---
