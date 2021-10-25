@@ -92,7 +92,7 @@ export const Content = styled.div `
     }
 
     .stack-summary-container {
-        margin-top: var(--chakra-space-6);
+        margin-top: 2em;
         -webkit-margin-end: 0px;
         margin-inline-end: 0px;
         margin-bottom: 0px;
@@ -135,4 +135,30 @@ export const Content = styled.div `
         font-size: 24px;
         line-height: 36px;
     }
+
+
+    .buttonCadastrarProduto {
+        display: flex;
+        align-items: center;
+        margin-top: 1e;
+        position: absolute;
+        left: 90em;
+        top: 11em;
+        background: #3F0B6D;
+        border-radius: 4px;
+        color: #fff;
+        border: none;
+        height: 40px;
+
+    }
+
+    .buttonCadastrarProduto a {
+        font-size: 14px;
+        line-height: 20px;
+        color: #FAFAFA;
+        
+        margin: 0px 10px;
+        text-decoration: none;
+    }
+
 `

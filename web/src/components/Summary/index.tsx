@@ -1,11 +1,13 @@
 
 
+import { Link } from "react-router-dom";
 import { Container, Content } from "./styles";
 
 interface SummaryProps {
     name: string,
     icone: string,
     description?: string,
+    showMeButtton?: boolean
 }
 
 export function Summary(props: SummaryProps) {
@@ -42,10 +44,14 @@ export function Summary(props: SummaryProps) {
                         </div>
     
                     </div>
-                    
+                    {props.showMeButtton && 
+                        <div className="buttonCadastrarProduto">
+                            <Link to="/cadastrar-produto">
+                                Cadastrar produto
+                            </Link>
+                        </div>
+                    }
                 </div>
-                
-             
             </Content>
         </Container>
     )

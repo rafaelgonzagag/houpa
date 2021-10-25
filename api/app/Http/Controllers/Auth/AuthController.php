@@ -26,6 +26,12 @@ class AuthController extends Controller
             ]);
         }
 
-        return $user->createToken('appvitrinetoken')->plainTextToken;
+        $token = $user->createToken('appvitrinetoken')->plainTextToken;
+
+
+        return response()->json([
+            'user' => $user,
+            'token' => $token
+        ]);
     }
 }

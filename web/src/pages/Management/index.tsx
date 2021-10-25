@@ -6,11 +6,36 @@ import fotoImg from '../../assets/foto1.png';
 
 import { Summary } from "../../components/Summary";
 import { Container, ProductItem, ProductList, Search } from './styles';
+import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { useHistory } from 'react-router';
+
+interface Product {
+    id: number;
+    name: string;
+    image: string;
+}
 
 export function Management () {
+    const [products, setProducts] = useState<Product[]>([]);
+    const history = useHistory();
+    useEffect(() => {
+        api.get('products')
+        .then((response) => {
+            
+            setProducts(response.data.products)
+        }).catch((err) => {
+            if(err.response.data.message) {
+                localStorage.removeItem('@Houpa:token');
+                localStorage.removeItem('@Houpa:user');
+                history.push("login");
+            }           
+        });
+    }, []);
+
     return (
         <>
-        <Summary name="Gerenciar Vitrines" icone={lojaImg} description="Cadastre seus produtos"/>
+        <Summary name="Gerenciar Vitrines" icone={lojaImg} description="Cadastre seus produtos" showMeButtton={true}/>
         <Container>
             <Search>
                 <div>
@@ -20,96 +45,24 @@ export function Management () {
                 <input placeholder="Pesquisar nome do produto" value=""/>
             </Search>
             <ProductList>
-                <ProductItem>
-                    <div id="photo" className="item-photo">
-                        <img src={fotoImg} alt="foto"></img>
-                    </div>
-                    <div id="detalhes" className="item-detalhes">
-                        <strong>TOP CROPPED VISCOSE</strong>
-                        <span>Marca: Unique Chic</span>
-                        <span>Ref.: 0296845610</span>
-                    </div>
-                    <div id="controles" className="item-action">
-                        <div id="edit">
-                            <img src={editImg} alt="edit"></img>
+                {products.map(product => (
+                    <ProductItem>
+                        <div id="photo" className="item-photo">
+                            <img src={fotoImg} alt="foto"></img>
                         </div>
-                        <div id="delete">
-                            <img src={deleteImg} alt="delete"></img>
+                        <div id="detalhes" className="item-detalhes">
+                            <strong>{product.name}</strong>
                         </div>
-                    </div>
-                </ProductItem>
-                <ProductItem>
-                    <div id="photo" className="item-photo">
-                        <img src={fotoImg} alt="foto"></img>
-                    </div>
-                    <div id="detalhes" className="item-detalhes">
-                        <strong>TOP CROPPED VISCOSE</strong>
-                        <span>Marca: Unique Chic</span>
-                        <span>Ref.: 0296845610</span>
-                    </div>
-                    <div id="controles" className="item-action">
-                        <div id="edit">
-                            <img src={editImg} alt="edit"></img>
+                        <div id="controles" className="item-action">
+                            <div id="edit">
+                                <img src={editImg} alt="edit"></img>
+                            </div>
+                            <div id="delete">
+                                <img src={deleteImg} alt="delete"></img>
+                            </div>
                         </div>
-                        <div id="delete">
-                            <img src={deleteImg} alt="delete"></img>
-                        </div>
-                    </div>
-                </ProductItem>
-                <ProductItem>
-                    <div id="photo" className="item-photo">
-                        <img src={fotoImg} alt="foto"></img>
-                    </div>
-                    <div id="detalhes" className="item-detalhes">
-                        <span>TOP CROPPED VISCOSE</span>
-                        <span>Marca: Unique Chic</span>
-                        <span>Ref.: 0296845610</span>
-                    </div>
-                    <div id="controles" className="item-action">
-                        <div id="edit">
-                            <img src={editImg} alt="edit"></img>
-                        </div>
-                        <div id="delete">
-                            <img src={deleteImg} alt="delete"></img>
-                        </div>
-                    </div>
-                </ProductItem>
-                <ProductItem>
-                    <div id="photo" className="item-photo">
-                        <img src={fotoImg} alt="foto"></img>
-                    </div>
-                    <div id="detalhes" className="item-detalhes">
-                        <span>TOP CROPPED VISCOSE</span>
-                        <span>Marca: Unique Chic</span>
-                        <span>Ref.: 0296845610</span>
-                    </div>
-                    <div id="controles" className="item-action">
-                        <div id="edit">
-                            <img src={editImg} alt="edit"></img>
-                        </div>
-                        <div id="delete">
-                            <img src={deleteImg} alt="delete"></img>
-                        </div>
-                    </div>
-                </ProductItem>
-                <ProductItem>
-                    <div id="photo" className="item-photo">
-                        <img src={fotoImg} alt="foto"></img>
-                    </div>
-                    <div id="detalhes" className="item-detalhes">
-                        <span>TOP CROPPED VISCOSE</span>
-                        <span>Marca: Unique Chic</span>
-                        <span>Ref.: 0296845610</span>
-                    </div>
-                    <div id="controles" className="item-action">
-                        <div id="edit">
-                            <img src={editImg} alt="edit"></img>
-                        </div>
-                        <div id="delete">
-                            <img src={deleteImg} alt="delete"></img>
-                        </div>
-                    </div>
-                </ProductItem>
+                    </ProductItem>
+                ))}
             </ProductList>
         </Container>
         </>
